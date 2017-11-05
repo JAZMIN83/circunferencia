@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author jorge
+ * @author Veronica Cortes / Jazmin Patiño
  */
 public class GeneradorLecuyer {
 

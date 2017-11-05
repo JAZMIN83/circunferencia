@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author jazmin.patino
+ * @author Veronica Cortes / Jazmin Patiño
  */
 public class Inicio {
 

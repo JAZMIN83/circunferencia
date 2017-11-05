@@ -7,7 +7,7 @@ package Circuferencia;
 
 /**
  *
- * @author jorge
+ * @author Veronica Cortes / Jazmin Patiño
  */
 public class Punto {
 

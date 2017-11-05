@@ -10,7 +10,7 @@ import java.util.Random;
 
 /**
  *
- * @author jorge
+* @author Veronica Cortes / Jazmin Patiño
  */
 public class PuntosAleatorios {
 
