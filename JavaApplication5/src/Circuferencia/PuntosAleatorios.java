@@ -17,6 +17,8 @@ public class PuntosAleatorios {
     private final ArrayList<Punto> puntos;
     final private Random rand = new Random();
     //final private GeneradorLecuyer rand = new GeneradorLecuyer();
+    
+    
 
     public PuntosAleatorios() {
 

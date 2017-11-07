@@ -79,7 +79,8 @@ public class CircunferenciaGUI {
 
     protected void updateLabel() {
         String text = "";
-
+        double esperado = 3.1416;
+        
         if ((clickPoint == null) && (cursorPoint == null)) {
             text = "Click or move the cursor within the framed area.";
         } else {
@@ -92,7 +93,7 @@ public class CircunferenciaGUI {
                 text += "Cursor en: (" + cursorPoint.getX() + ", " + cursorPoint.getY() + "). ";
                 text += "Pi: (" + pi + "). ";
                 text += "Puntos: (" + puntosGenerados + "). ";
-                
+                text += "Esperado-pi: (" + (esperado-pi) + ").";
             }
         }
 
