@@ -4,7 +4,7 @@
  * Jazmin Patiño
 
  */
-package puntoscercanosgui;
+package GUI;
 
 import Circuferencia.Circunferencia;
 import Circuferencia.Punto;
@@ -26,7 +26,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.event.MouseInputListener;
 
-public class CoordinatesDemo {
+public class CircunferenciaGUI {
 
     private JLabel label;
     private Point clickPoint, cursorPoint;
@@ -101,7 +101,7 @@ public class CoordinatesDemo {
         JFrame frame = new JFrame("CoordinatesDemo");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        CoordinatesDemo controller = new CoordinatesDemo();
+        CircunferenciaGUI controller = new CircunferenciaGUI();
         controller.buildUI(frame.getContentPane());
 
         frame.pack();
@@ -113,7 +113,7 @@ public class CoordinatesDemo {
         //Point point = null;
         ArrayList<Point> points;
 
-        CoordinatesDemo controller;
+        CircunferenciaGUI controller;
 
         Dimension preferredSize = new Dimension(DIMENSION_X, DIMENSION_Y);
 
@@ -123,7 +123,7 @@ public class CoordinatesDemo {
 
         static int contador = 0;
 
-        public CoordinateArea(CoordinatesDemo controller) {
+        public CoordinateArea(CircunferenciaGUI controller) {
             this.controller = controller;
             this.points = new ArrayList<>();
             // Add a border of 5 pixels at the left and bottom,
