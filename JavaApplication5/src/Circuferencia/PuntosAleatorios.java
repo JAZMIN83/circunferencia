@@ -29,14 +29,14 @@ public class PuntosAleatorios {
     public void generar(int ladoCuadrado, int numeroAleatorios) {
 
         Punto punto;
-        for (int i = 0; i < numeroAleatorios; i++) {
+        //for (int i = 0; i < numeroAleatorios; i++) {
             do {
                 punto = new Punto(
                         rand.nextInt(ladoCuadrado) - (ladoCuadrado / 2),
                         rand.nextInt(ladoCuadrado) - (ladoCuadrado / 2));
             } while (getPuntos().contains(punto));
             getPuntos().add(punto);
-        }
+        //}
     }
 
     /**

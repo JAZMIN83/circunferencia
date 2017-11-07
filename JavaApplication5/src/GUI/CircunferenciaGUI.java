@@ -31,8 +31,9 @@ public class CircunferenciaGUI {
     private JLabel label;
     private Punto clickPoint, cursorPoint;
     private static double pi;
+    private static int puntosGenerados;
 
-    private static final int NUMEROS_ALEATORIOS = 1000;
+    private static int NUMEROS_ALEATORIOS = 1;
     private static final int DIMENSION_X = 500;
     private static final int DIMENSION_Y = DIMENSION_X;
 
@@ -90,6 +91,8 @@ public class CircunferenciaGUI {
             if (cursorPoint != null) {
                 text += "Cursor en: (" + cursorPoint.getX() + ", " + cursorPoint.getY() + "). ";
                 text += "Pi: (" + pi + "). ";
+                text += "Puntos: (" + puntosGenerados + "). ";
+                
             }
         }
 
@@ -134,8 +137,7 @@ public class CircunferenciaGUI {
             addMouseMotionListener(this);
             setBackground(Color.WHITE);
             setOpaque(true);
-
-            c.procesar(NUMEROS_ALEATORIOS);
+            
         }
 
         public Dimension getPreferredSize() {
@@ -227,7 +229,10 @@ public class CircunferenciaGUI {
 
         public void mouseMoved(MouseEvent e) {
 
+            NUMEROS_ALEATORIOS++;
+            c.procesar(NUMEROS_ALEATORIOS);
             if (contador < NUMEROS_ALEATORIOS) {
+                puntosGenerados = NUMEROS_ALEATORIOS;
                 Punto p = c.getPuntosAleatorios().getPuntos().get(contador);
                 contador++;
 
