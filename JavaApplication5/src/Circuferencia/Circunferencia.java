@@ -33,7 +33,8 @@ public class Circunferencia {
 
         for (int i = 0; i < pa.size(); i++) {
             Punto p = pa.get(i);
-            boolean pdc = puntoDentroCircunferencia(p, radio);           
+            boolean pdc = puntoDentroCircunferencia(p, radio); 
+            p.setDentro(pdc);
             contadores[pdc ? 1 : 0] += 1;
         }
     }

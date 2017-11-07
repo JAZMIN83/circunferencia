@@ -29,9 +29,9 @@ import javax.swing.event.MouseInputListener;
 public class CircunferenciaGUI {
 
     private JLabel label;
-    private Point clickPoint, cursorPoint;
+    private Punto clickPoint, cursorPoint;
     private static double pi;
-    
+
     private static final int NUMEROS_ALEATORIOS = 1000;
     private static final int DIMENSION_X = 500;
     private static final int DIMENSION_Y = DIMENSION_X;
@@ -58,15 +58,15 @@ public class CircunferenciaGUI {
         }
 
         if (cursorPoint == null) {
-            cursorPoint = new Point();
+            cursorPoint = new Punto();
         }
 
-        cursorPoint.x = x;
-        cursorPoint.y = y;
+        cursorPoint.setX(x);
+        cursorPoint.setY(y);
         updateLabel();
     }
 
-    public void updateClickPoint(Point p) {
+    public void updateClickPoint(Punto p) {
         clickPoint = p;
         updateLabel();
     }
@@ -88,7 +88,7 @@ public class CircunferenciaGUI {
             }
 
             if (cursorPoint != null) {
-                text += "Cursor en: (" + cursorPoint.x + ", " + cursorPoint.y + "). ";
+                text += "Cursor en: (" + cursorPoint.getX() + ", " + cursorPoint.getY() + "). ";
                 text += "Pi: (" + pi + "). ";
             }
         }
@@ -111,7 +111,7 @@ public class CircunferenciaGUI {
     public static class CoordinateArea extends JComponent implements MouseInputListener {
 
         //Point point = null;
-        ArrayList<Point> points;
+        ArrayList<Punto> points;
 
         CircunferenciaGUI controller;
 
@@ -158,16 +158,21 @@ public class CircunferenciaGUI {
 
             for (int i = 0; i < points.size(); i++) {
 
-                g.setColor(getForeground());
-                g.drawOval(points.get(i).x - 2, points.get(i).y - 2, 4, 4);
+                if (points.get(i).isDentro()) {
+                    g.setColor(getForeground());
+                    g.drawOval(points.get(i).getX() - 2, points.get(i).getY() - 2, 4, 4);
 
-                g.setColor(Color.RED);
-                g.fillOval(points.get(i).x - 2, points.get(i).y - 2, 4, 4);
+                    g.setColor(Color.RED);
+                    g.fillOval(points.get(i).getX() - 2, points.get(i).getY() - 2, 4, 4);
+                } else {
+                    g.setColor(getForeground());
+                    g.drawOval(points.get(i).getX() - 2, points.get(i).getY() - 2, 4, 4);
 
+                    g.setColor(Color.BLUE);
+                    g.fillOval(points.get(i).getX() - 2, points.get(i).getY() - 2, 4, 4);
+                }
             }
 
-            /*Calculador calculador = new Calculador();
-             calculador.calcularMinimaDistancia(points); */
             /*if (points.size() > 1){
                 
              g.setColor(getForeground());
@@ -175,10 +180,7 @@ public class CircunferenciaGUI {
              g.setColor(Color.BLUE);
              g.fillOval(points.get(calculador.indexPunto1).x - 2, points.get(calculador.indexPunto1).y - 2, 4, 4);
                 
-             g.setColor(getForeground());
-             g.drawOval(points.get(calculador.indexPunto2).x - 2, points.get(calculador.indexPunto2).y - 2, 4, 4);
-             g.setColor(Color.BLUE);
-             g.fillOval(points.get(calculador.indexPunto2).x - 2, points.get(calculador.indexPunto2).y - 2, 4, 4);
+            
                 
              }*/
         }
@@ -229,13 +231,14 @@ public class CircunferenciaGUI {
                 Punto p = c.getPuntosAleatorios().getPuntos().get(contador);
                 contador++;
 
-                Point point = new Point(p.getX() + (DIMENSION_X / 2), p.getY() + (DIMENSION_Y / 2));
+                Punto point = new Punto(p.getX() + (DIMENSION_X / 2), p.getY() + (DIMENSION_Y / 2));
+                point.setDentro(p.isDentro());
                 points.add(point);
                 controller.updateClickPoint(point);
                 pi = c.calcuarPi();
                 repaint();
             }
-            controller.updateCursorLocation(e.getX(), e.getY());            
+            controller.updateCursorLocation(e.getX(), e.getY());
         }
 
         public void mouseExited(MouseEvent e) {

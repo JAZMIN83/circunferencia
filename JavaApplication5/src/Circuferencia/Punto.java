@@ -11,8 +11,14 @@ package Circuferencia;
  */
 public class Punto {
 
-    private final int x;
-    private final int y;
+    private int x;
+    private int y;
+    private boolean dentro;
+
+    public Punto() {
+        x = 0;
+        y = 0;
+    }
 
     public Punto(int x, int y) {
         this.x = x;
@@ -41,7 +47,7 @@ public class Punto {
         }
 
         Punto that = (Punto) anotherObject;
-        
+
         return this.x == that.getX() && this.y == that.getY();
     }
 
@@ -51,5 +57,33 @@ public class Punto {
         hash = 67 * hash + (int) (Double.doubleToLongBits(this.x) ^ (Double.doubleToLongBits(this.x) >>> 32));
         hash = 67 * hash + (int) (Double.doubleToLongBits(this.y) ^ (Double.doubleToLongBits(this.y) >>> 32));
         return hash;
+    }
+
+    /**
+     * @return the dentro
+     */
+    public boolean isDentro() {
+        return dentro;
+    }
+
+    /**
+     * @param dentro the dentro to set
+     */
+    public void setDentro(boolean dentro) {
+        this.dentro = dentro;
+    }
+
+    /**
+     * @param x the x to set
+     */
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(int y) {
+        this.y = y;
     }
 }
