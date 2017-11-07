@@ -90,10 +90,10 @@ public class CircunferenciaGUI {
             }
 
             if (cursorPoint != null) {
-                text += "Cursor en: (" + cursorPoint.getX() + ", " + cursorPoint.getY() + "). ";
+                //text += "Cursor en: (" + cursorPoint.getX() + ", " + cursorPoint.getY() + "). ";
                 text += "Pi: (" + pi + "). ";
                 text += "Puntos: (" + puntosGenerados + "). ";
-                text += "Esperado-pi: (" + (esperado-pi) + ").";
+                text += "PIEsper-PIaprox: (" + (esperado-pi) + ").";
             }
         }
 
