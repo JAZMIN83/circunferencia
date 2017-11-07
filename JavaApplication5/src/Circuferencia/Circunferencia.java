@@ -16,9 +16,9 @@ public class Circunferencia {
 
     final private PuntosAleatorios puntosAleatorios;
     final private int[] contadores = new int[2];
-    final private double radio;
+    final private int radio;
 
-    public Circunferencia(double radio) {
+    public Circunferencia(int radio) {
         contadores[0] = 0;
         contadores[1] = 0;
         this.puntosAleatorios = new PuntosAleatorios();
@@ -27,9 +27,9 @@ public class Circunferencia {
 
     public void procesar(int numerosaleatorios) {
 
-        puntosAleatorios.generar(radio * 2, numerosaleatorios);
+        getPuntosAleatorios().generar(radio * 2, numerosaleatorios);
 
-        ArrayList<Punto> pa = puntosAleatorios.getPuntos();
+        ArrayList<Punto> pa = getPuntosAleatorios().getPuntos();
 
         for (int i = 0; i < pa.size(); i++) {
             Punto p = pa.get(i);
@@ -46,6 +46,13 @@ public class Circunferencia {
     private boolean puntoDentroCircunferencia(Punto punto, double radio) {
 
         return Math.pow(punto.getX(), 2) + Math.pow(punto.getY(), 2) <= Math.pow(radio, 2);
+    }
+
+    /**
+     * @return the puntosAleatorios
+     */
+    public PuntosAleatorios getPuntosAleatorios() {
+        return puntosAleatorios;
     }
 }
 

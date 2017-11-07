@@ -11,10 +11,10 @@ package Circuferencia;
  */
 public class Punto {
 
-    private final double x;
-    private final double y;
+    private final int x;
+    private final int y;
 
-    public Punto(double x, double y) {
+    public Punto(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -22,14 +22,14 @@ public class Punto {
     /**
      * @return the x
      */
-    public double getX() {
+    public int getX() {
         return x;
     }
 
     /**
      * @return the y
      */
-    public double getY() {
+    public int getY() {
         return y;
     }
 

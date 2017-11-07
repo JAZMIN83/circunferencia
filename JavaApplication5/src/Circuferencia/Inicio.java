@@ -17,13 +17,12 @@ public class Inicio {
         // TODO code application logic here
         double radio, area;
         System.out.println("HALLA EL AREA DE UN CIRCULO");
-        System.out.print("Ingresar el radio r = ");
         //Scanner scanner = new Scanner(System.in);
         // radio = scanner.nextFloat();
 
-        Circunferencia c = new Circunferencia(1.0);
+        Circunferencia c = new Circunferencia(100);
         
-        c.procesar(1000);
+        c.procesar(10000);
         
         System.out.println("Pi = " +  c.calcuarPi());
 

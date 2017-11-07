@@ -15,25 +15,25 @@ import java.util.Random;
 public class PuntosAleatorios {
 
     private final ArrayList<Punto> puntos;
-    //final private Random rand = new Random();
-    final private GeneradorLecuyer rand = new GeneradorLecuyer();
+    final private Random rand = new Random();
+    //final private GeneradorLecuyer rand = new GeneradorLecuyer();
 
     public PuntosAleatorios() {
 
         this.puntos = new ArrayList<>();
 
-        rand.inicial(2246, 4457, 1000000);
-        rand.generar();
+        //rand.inicial(2246, 4457, 1000000);
+        //rand.generar();
     }
 
-    public void generar(double ladoCuadrado, int numeroAleatorios) {
+    public void generar(int ladoCuadrado, int numeroAleatorios) {
 
         Punto punto;
         for (int i = 0; i < numeroAleatorios; i++) {
             do {
                 punto = new Punto(
-                        rand.nextDouble(ladoCuadrado) - (ladoCuadrado / 2),
-                        rand.nextDouble(ladoCuadrado) - (ladoCuadrado / 2));
+                        rand.nextInt(ladoCuadrado) - (ladoCuadrado / 2),
+                        rand.nextInt(ladoCuadrado) - (ladoCuadrado / 2));
             } while (getPuntos().contains(punto));
             getPuntos().add(punto);
         }
